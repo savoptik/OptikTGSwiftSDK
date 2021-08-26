@@ -129,7 +129,11 @@ public class BotMain {
                     components.scheme = "file"
                     components.path = FileManager.default.currentDirectoryPath  + "/update.json"
                     if let url = components.url {
-                        localData.write(to: url)
+                        do {
+                            try localData.write(to: url)
+                        } catch {
+                            print("kan not write data to file")
+                        }
                     }
                     fatalError()
                     self.semaphore.signal()
