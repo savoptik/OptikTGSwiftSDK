@@ -112,7 +112,7 @@ public class BotMain {
                     if res.ok {
                         DispatchQueue.global(qos: .default).async { [self] in
                             let unikUpdates: [Update] = res.result.filter {!self.updateIDStack.contains($0.message.message_id)}
-                            unikUpdates.map {self.updateIDStack.append($0.message.message_id)}
+                            self.updateIDStack.append(contentsOf: unikUpdates.map {$0.message.message_id})
                             for handler in delegat.handlers {
                                 DispatchQueue.global(qos: .background).async { [handler, unikUpdates] in
                                     handler(unikUpdates)
