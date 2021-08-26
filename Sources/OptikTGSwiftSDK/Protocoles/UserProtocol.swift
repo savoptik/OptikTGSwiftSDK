@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol UserProtocol: Decodable {
+public protocol UserProtocol: Codable {
     var id: UInt { get }
     var first_name: String { get }
     var username: String { get }

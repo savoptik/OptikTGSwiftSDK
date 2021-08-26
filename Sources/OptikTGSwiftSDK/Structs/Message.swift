@@ -4,7 +4,7 @@
 
 import Foundation
 
-public struct Message : Decodable {
+public struct Message : Codable {
         public let message_id: UInt
         public let from: From
         public let chat: Chat

@@ -4,7 +4,7 @@
 
 import Foundation
 
-public struct Update : Decodable {
+public struct Update : Codable {
     public let update_id: UInt
     public let message: Message
 
