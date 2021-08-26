@@ -55,6 +55,7 @@ public class BotMain {
             }
 
             delegat.botDedTerminate(commandLineArguments: commandLineArguments)
+            exit(0)
         } else {
             print("Bot ID check faild")
         }
