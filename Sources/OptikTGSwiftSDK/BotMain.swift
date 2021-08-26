@@ -125,6 +125,13 @@ public class BotMain {
                     }
                 } catch {
                     print("Fail decoding update")
+                    var components = URLComponents()
+                    components.scheme = "file"
+                    components.path = FileManager.default.currentDirectoryPath  + "/update.json"
+                    if let url = components.url {
+                        localData.write(to: url)
+                    }
+                    fatalError()
                     self.semaphore.signal()
                 }
             } else {
