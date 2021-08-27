@@ -4,7 +4,7 @@
 
 import Foundation
 
-public struct From : ExUser {
+public struct From : ExUserProtocol {
     public let id: UInt
     public let is_bot: Bool
     public let                first_name: String

@@ -10,9 +10,10 @@ public struct Message : Codable {
         public let chat: Chat
         public let date: Date
         public let text: String
+        public let entities: [Entitie]?
 
         private enum Keys : String, CodingKey {
-                case message_id, from, chat, date, text
+                case message_id, from, chat, date, text, entities
         }
 
         public init(from decoder: Decoder) throws {
@@ -23,5 +24,6 @@ public struct Message : Codable {
                 let uTime = try  container.decode(Double.self, forKey: .date)
                 date = Date(timeIntervalSince1970: uTime)
                 text = try container.decode(String.self, forKey: .text)
+                entities = try container.decode([Entitie].self, forKey: .entities)
         }
 }

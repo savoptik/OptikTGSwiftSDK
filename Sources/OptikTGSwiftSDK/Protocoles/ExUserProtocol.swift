@@ -4,6 +4,6 @@
 
 import Foundation
 
-protocol ExUser : UserProtocol {
+protocol ExUserProtocol : UserProtocol {
     var last_name: String { get }
 }

@@ -113,8 +113,8 @@ public class BotMain {
                     let res: ResponseGetUpdates = try JSONDecoder().decode(ResponseGetUpdates.self, from: localData)
                     if res.ok {
                         DispatchQueue.global(qos: .default).async { [self] in
-                            let unikUpdates: [Update] = res.result.filter {!self.updateIDStack.contains($0.message.message_id)}
-                            self.updateIDStack.append(contentsOf: unikUpdates.map {$0.message.message_id})
+                            let unikUpdates: [Update] = res.result.filter {!self.updateIDStack.contains($0.update_id)}
+                            self.updateIDStack.append(contentsOf: unikUpdates.map {$0.update_id})
                             for handler in delegat.handlers {
                                 DispatchQueue.global(qos: .background).async { [handler, unikUpdates] in
                                     handler(unikUpdates)
@@ -138,7 +138,6 @@ public class BotMain {
                         }
                     }
                     fatalError()
-                    self.semaphore.signal()
                 }
             } else {
                 self.semaphore.signal()
