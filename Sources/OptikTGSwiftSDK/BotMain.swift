@@ -34,14 +34,15 @@ public class BotMain {
             }
 
             if let handler = delegat.signalHandler {
-                for i: Int32 in 1..<12 {
+                for i: Int32 in 1..<7 {
                     signal(i, handler)
                 }
             } else {
-                for i: Int32 in 1..<12 {
+                for i: Int32 in 1..<7 {
                     signal(i) { int32 in
                         print("fail code: \(int32)")
                         TGBOT.stopBot()
+                        exit(int32)
                     }
                 }
             }
@@ -55,7 +56,7 @@ public class BotMain {
             }
 
             delegat.botDedTerminate(commandLineArguments: commandLineArguments)
-            exit(0)
+
         } else {
             print("Bot ID check faild")
         }
@@ -148,6 +149,7 @@ public class BotMain {
 
     public func stopBot() {
         self.runing = false
+        self.semaphore.signal()
     }
 
     final public func setDelegate(_ delegate: BotDelegate) -> BotMain {
