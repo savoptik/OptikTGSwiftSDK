@@ -5,7 +5,7 @@
 import Foundation
 
 public struct OutMessage : Encodable {
-        public let chat_id: UInt
+        public let chat_id: Int
     public let text: String
     public let disable_notification: Bool?
     public let reply_to_message_id: UInt?

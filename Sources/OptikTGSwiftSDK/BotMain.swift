@@ -175,7 +175,7 @@ let task = URLSession.shared.dataTask(with: url) { data, response, error in
         task.resume()
 }
 
-    final public func sendMessage(WithChatID chatId: UInt, andText text: String, disable_notification: Bool? = nil, reply_to_message_id: UInt? = nil, allow_sending_without_reply: Bool? = nil) {
+    final public func sendMessage(WithChatID chatId: Int, andText text: String, disable_notification: Bool? = nil, reply_to_message_id: UInt? = nil, allow_sending_without_reply: Bool? = nil) {
         self.sendMessage(withMessage: .init(chat_id: chatId, text: text, disable_notification: disable_notification, reply_to_message_id: reply_to_message_id, allow_sending_without_reply: allow_sending_without_reply))
     }
 }
