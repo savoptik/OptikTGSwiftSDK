@@ -5,7 +5,7 @@
 import Foundation
 
 public struct Chat : Codable {
-    public let id: UInt
+    public let id: Int
     public let                first_name: String?
     public let last_name: String?
     public let username: String?
