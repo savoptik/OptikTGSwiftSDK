@@ -24,12 +24,11 @@ public struct Message : Codable {
                 message_id = try container.decode(UInt.self, forKey: .message_id)
                 from = try container.decode(From.self, forKey: .from)
                 chat = try container.decode(Chat.self, forKey: .chat)
-                let uTime = try  container.decode(Double.self, forKey: .date)
-                date = Date(timeIntervalSince1970: uTime)
-                text = try container.decode(String.self, forKey: .text)
-                entities = try container.decode([Entitie].self, forKey: .entities)
-                new_chat_participant = try container.decode(User.self, forKey: .new_chat_participant)
-                new_chat_member = try container.decode(User.self, forKey: .new_chat_member)
-                new_chat_members = try container.decode([User].self, forKey: .new_chat_members)
+                date = try  container.decode(Date.self, forKey: .date)
+                text = try container.decode(String?.self, forKey: .text)
+                entities = try container.decode([Entitie]?.self, forKey: .entities)
+                new_chat_participant = try container.decode(User?.self, forKey: .new_chat_participant)
+                new_chat_member = try container.decode(User?.self, forKey: .new_chat_member)
+                new_chat_members = try container.decode([User]?.self, forKey: .new_chat_members)
         }
 }
