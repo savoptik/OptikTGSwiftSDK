@@ -15,6 +15,12 @@ public class BotMain {
     private var runing: Bool = true
     private var updateIDStack: [UInt] = []
     private let semaphore = DispatchSemaphore(value: 0)
+    public var isRuning: Bool {
+        get {
+            return runing
+        }
+    }
+
 
     public init() {
 
